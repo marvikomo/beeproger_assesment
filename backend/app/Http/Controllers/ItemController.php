@@ -23,5 +23,9 @@ class ItemController extends Controller{
        return response()->json($item->toArray(), Response::HTTP_CREATED);
     }
 
-  
+    public function retrieveItems(Request $request) {
+        $items = TodoItem::all();
+        return response()->json($items->toArray(), 200);
+    }
+
 }
