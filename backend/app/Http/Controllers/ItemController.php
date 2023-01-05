@@ -69,5 +69,17 @@ class ItemController extends Controller{
         }
     }
 
-    
+    public function complete(Request $request, $id) {
+        try{
+            $item = TodoItem::findOrFail($id);
+            $item->status = "COMPLETED";
+            $item->save();
+            return response()->json(['success' => true, 'message' => 'List has been completed.'], Response::HTTP_OK);
+
+        }catch(\Exception $e){
+            return response()->json([
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }
