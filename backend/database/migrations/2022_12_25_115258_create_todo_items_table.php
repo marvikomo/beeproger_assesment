@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->text('photo')->nullable();
-            $table->string('amount')->nullable();
+            $table->decimal('amount', 10, 2);
             $table->softDeletes();
             $table->enum('status', ['PENDING', 'COMPLETED'])->default('PENDING');
             $table->timestamps();

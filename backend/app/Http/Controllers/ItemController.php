@@ -51,7 +51,7 @@ class ItemController extends Controller
     {
         try {
             $items = TodoItem::all();
-            return response()->json($items->toArray(), 200);
+            return response()->json($items->toArray(), Response::HTTP_OK);
         } catch (\Exception $e) {
             return response()->json(
                 [
@@ -66,7 +66,7 @@ class ItemController extends Controller
     {
         try {
             $item = TodoItem::find($id);
-            return response()->json($item->toArray(), 200);
+            return response()->json($item->toArray(), Response::HTTP_OK);
         } catch (\Exception $e) {
             return response()->json(
                 [
