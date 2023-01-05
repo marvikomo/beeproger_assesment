@@ -50,7 +50,7 @@ class ItemController extends Controller
     public function retrieveItems(Request $request)
     {
         try {
-            $items = TodoItem::all();
+            $items = TodoItem::orderBy('created_at', 'DESC')->get();
             return response()->json($items->toArray(), Response::HTTP_OK);
         } catch (\Exception $e) {
             return response()->json(
