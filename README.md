@@ -1,7 +1,8 @@
 ##Todo Shopping List
-
-####To run
+####To run the app
 - Clone the repo
+
+####To run the backend
 - Run composer install
 - Make a copy of .env from .env.copy
 - Do Run database migration - `php artisan migrate`
@@ -9,3 +10,9 @@
 - Run the queue - `php artisan queue:listen`
 - Run scheduler - `php artisan schedule:run`  
 - Test the app by running - `php artisan test`
+
+####To run the frontend
+- Run npm install
+- Start the server - `npm run dev`
+
+
