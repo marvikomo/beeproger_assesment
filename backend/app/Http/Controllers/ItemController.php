@@ -57,5 +57,17 @@ class ItemController extends Controller{
 
     }
     
+    public function deleteItem(Request $request, $id) {
+        try{
+     $item = TodoItem::findOrFail($id);
+     $item->delete();
+     return response()->json([], Response::HTTP_OK);
+        }catch(\Exception $e){
+            return response()->json([
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
     
 }
