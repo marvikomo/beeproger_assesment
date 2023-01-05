@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-      "generate-client":"openapi-generator-cli generate -i ./spec/api-spec.yaml -g typescript -o ../Client"
+      "generate-client":"openapi-generator-cli generate -i ./backend/spec/api-spec.yaml -g typescript -o ../Client"
     }
   }
   
