@@ -28,4 +28,34 @@ class ItemController extends Controller{
         return response()->json($items->toArray(), 200);
     }
 
+    public function retrieveSingleItem(Request $request, $id) {
+       $item = TodoItem::find($id);
+       return response()->json($item->toArray(), 200);
+    }
+
+    public function updateItem(Request $request, $id) {
+        try{
+        // $request->validate([
+        //     'name'=>'required',
+        //     'description'=>'required',
+        //     'amount'=>'required',
+        //     'photo' => 'required'
+        // ]); 
+        
+        $todo = TodoItem::find($id);
+        // Getting values from the blade template form
+        $todo->name =  $request->name;
+        $todo->description = $request->description;
+        $todo->amount = $request->amount;
+        $todo->photo = $request->photo;
+        $todo->save();
+
+        return response()->json(['success' => true, 'message' => 'List has been updated.'], Response::HTTP_OK);
+    }catch(\Exception $e){
+
+    }
+
+    }
+    
+    
 }
